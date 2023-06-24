@@ -1,18 +1,7 @@
-
-
 <script>
-
-export default {
-
-}
+export default {};
 </script>
 
+<template></template>
 
-<template>
-    Страница 1
-</template>
-
-
-<style>
-
-</style>
+<style></style>

@@ -1,14 +1,92 @@
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      imagePhone: "./src/assets/telephone.png",
+      imageBug: "./src/assets/Group.png",
+      imageLogo: "./src/assets/Скриншот-24-06-2023-215245.png",
+      width: 100,
+      height: 100,
+    };
+  },
+};
+</script>
 <template>
-  <nav>
-    <div class="header">
-      <div class="headerContent">bgbgbbggbb</div>
+  <nav class="header">
+    <div class="headerContent">
+      <img :style="{ width: width + 'px' }" :src="imageLogo" />
+      ГлобалСити
+    </div>
+    <div class="nav BasicText">
+      <span>Главная</span>
+      <span>Магазин</span>
+      <span>О нас</span>
+      <span>Профиль</span>
+    </div>
+    <div class="contact">
+      <div class="ImageContainer">
+        <img :src="imagePhone" />
+      </div>
+      <div class="phone BasicText">+7 (495) 823-54-12</div>
+      <img :src="imageBug" />
     </div>
   </nav>
+  <div class="bgColor"></div>
 </template>
 
 <style>
+@font-face {
+  font-family: "Raleway";
+  src: url(../assets/Raleway.ttf);
+}
+.ImageContainer {
+  display: inline-flex;
+  padding: 3px 4px 7px 6px;
+  justify-content: center;
+  align-items: center;
+}
+.BasicText {
+  color: #000;
+  font-family: "Raleway";
+}
 .header {
-  margin: 50px, 0px, 50px, 0px;
+  margin: 40px 0px 50px 0px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+  position: relative;
+  height: 70px;
+  align-items: center;
+}
+.contact {
+  display: flex;
+}
+.phone {
+  margin: 0px 67px 0px 9px;
+  font-size: 15px;
+  line-height: 140%;
+  letter-spacing: 0.3px;
+}
+.nav {
+  display: flex;
+  column-gap: 45px;
+  line-height: 140%;
+  letter-spacing: 0.3px;
+  font-size: 15px;
+}
+.bgColor {
+  position: absolute;
+  width: 705px;
+  height: 826px;
+  flex-shrink: 0;
+  background: #f1eadc;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+.headerContent {
+  font-size: 20px;
+  font-weight: 550;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 </style>

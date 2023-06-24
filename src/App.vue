@@ -15,7 +15,7 @@ export default {
 <template>
   <div class="app">
     <!-- Шапка -->
-    <AppHeader></AppHeader>
+
     <app-header></app-header>
 
     <!-- Меняющаяся часть -->
