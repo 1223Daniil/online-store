@@ -1,31 +1,44 @@
 <script>
 // Компоненты
-import AppHeader from "./components/AppHeader.vue";
-import { RouterView } from "vue-router";
-
+import { RouterView } from 'vue-router'
+import AppShopFooter from './components/AppShopFooter.vue'
+import AppMain from './components/AppMain.vue'
+import AppShopHeader from './components/AppShopHeader.vue'
+import AppShop from './components/AppShop.vue'
 // Главная страница
 export default {
-  components: {
-    AppHeader,
-    RouterView,
-  },
-};
+	components: {
+		AppMain,
+		AppShopFooter,
+		AppShopHeader,
+		AppShop,
+		RouterView,
+	},
+}
 </script>
 
 <template>
-  <div class="app">
-    <!-- Шапка -->
-    <AppHeader></AppHeader>
-    <app-header></app-header>
+	<div class="app">
+		<!-- Шапка -->
+		<app-shop-header></app-shop-header>
+		<!-- Шапка -->
 
-    <!-- Меняющаяся часть -->
-    <router-view></router-view>
-  </div>
+		<!-- Основная часть сайта -->
+		<app-shop></app-shop>
+		<!-- Основная часть сайта -->
+
+		<!-- Подвал -->
+		<app-shop-footer></app-shop-footer>
+		<!-- Подвал -->
+
+		<!-- Меняющаяся часть -->
+	</div>
 </template>
 
 <style>
-.app {
-  max-width: 1310px;
-  margin: 0 auto;
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 </style>
