@@ -4,7 +4,7 @@ export default {
     return {
       imagePhone: "./src/assets/telephone.png",
       imageBug: "./src/assets/Group.png",
-      imageLogo: "./src/assets/Скриншот-24-06-2023-215245.png",
+      imageLogo: "./src/assets/dress (1) 1.svg",
       width: 100,
       height: 100,
     };
@@ -14,8 +14,15 @@ export default {
 <template>
   <nav class="header">
     <div class="headerContent">
-      <img :style="{ width: width + 'px' }" :src="imageLogo" />
-      ГлобалСити
+      <img
+        class="logo"
+        :style="{
+          width: width - 75 + 'px',
+          height: height - 75 + 'px',
+        }"
+        :src="imageLogo"
+      />
+      Womazing
     </div>
     <div class="nav BasicText">
       <span>Главная</span>
@@ -34,7 +41,7 @@ export default {
   <div class="bgColor"></div>
 </template>
 
-<style>
+<style scoped>
 @font-face {
   font-family: "Raleway";
   src: url(../assets/Raleway.ttf);
@@ -55,7 +62,7 @@ export default {
   justify-content: space-between;
   z-index: 3;
   position: relative;
-  height: 70px;
+  height: 50px;
   align-items: center;
 }
 .contact {
@@ -76,7 +83,7 @@ export default {
 }
 .bgColor {
   position: absolute;
-  width: 705px;
+  width: 45%;
   height: 826px;
   flex-shrink: 0;
   background: #f1eadc;
@@ -85,8 +92,14 @@ export default {
   z-index: 1;
 }
 .headerContent {
-  font-size: 20px;
-  font-weight: 550;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #000;
+  font-size: 16px;
+  font-family: "Raleway";
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+.logo {
+  margin-right: 11px;
 }
 </style>

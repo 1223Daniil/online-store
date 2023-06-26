@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 
 // Компоненты страниц
-import Page1 from './views/Page1.vue';
+import BasicScreen from './views/StartScreen.vue';
 import Page2 from './views/Page2.vue';
 
 
@@ -16,12 +16,9 @@ export default createRouter({
         {
             path: '/',
             name: 'page1',
-            component: Page1,
+            component: BasicScreen
         },
-        {
-            path: '/page2',
-            name: 'page2',
-            component: Page2
-        }
+       
+     
     ]
 })
