@@ -38,7 +38,7 @@ export default {
       <img :src="imageBug" />
     </div>
   </nav>
-  <div class="bgColor"></div>
+ 
 </template>
 
 <style scoped>
@@ -81,16 +81,7 @@ export default {
   letter-spacing: 0.3px;
   font-size: 15px;
 }
-.bgColor {
-  position: absolute;
-  width: 45%;
-  height: 826px;
-  flex-shrink: 0;
-  background: #f1eadc;
-  right: 0;
-  top: 0;
-  z-index: 1;
-}
+
 .headerContent {
   color: #000;
   font-size: 16px;

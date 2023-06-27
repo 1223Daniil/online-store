@@ -45,6 +45,7 @@ export default {
 };
 </script>
 <template>
+  <div class="bgColor"></div>
   <section>
     <div class="slider">
       <div class="StartscreenTitle">
@@ -89,24 +90,19 @@ export default {
         />
       </div>
     </div>
-    <!-- <img
-      width="350"
-      height="478"
-      src="../assets/Скриншот 26-06-2023 152826.jpg"
-    />
-    <img
-      width="350"
-      height="478"
-      src="../assets/Скриншот 26-06-2023 153600.jpg"
-    />
-    <img
-      width="350"
-      height="478"
-      src="../assets/Скриншот 26-06-2023 154253.jpg"
-    /> -->
   </section>
 </template>
-<style>
+<style scoped>
+.bgColor {
+  position: absolute;
+  width: 45%;
+  height: 826px;
+  flex-shrink: 0;
+  background: #f1eadc;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
 .slider {
   margin-top: 40px;
   display: flex;
