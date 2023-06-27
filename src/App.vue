@@ -1,44 +1,45 @@
 <script>
 // Компоненты
-import { RouterView } from 'vue-router'
-import AppShopFooter from './components/AppShopFooter.vue'
-import AppMain from './components/AppMain.vue'
-import AppShopHeader from './components/AppShopHeader.vue'
-import AppShop from './components/AppShop.vue'
+import { RouterView } from "vue-router";
+import AppShopFooter from "./components/AppShopFooter.vue";
+import AppShopHeader from "./components/AppShopHeader.vue";
+
 // Главная страница
 export default {
-	components: {
-		AppMain,
-		AppShopFooter,
-		AppShopHeader,
-		AppShop,
-		RouterView,
-	},
-}
+  components: {
+    AppShopFooter,
+    AppShopHeader,
+    RouterView,
+  },
+};
 </script>
 
 <template>
-	<div class="app">
-		<!-- Шапка -->
-		<app-shop-header></app-shop-header>
-		<!-- Шапка -->
+  <div class="app">
+    <!-- Шапка -->
+    <app-shop-header></app-shop-header>
+    <!-- Шапка -->
 
-		<!-- Основная часть сайта -->
-		<app-shop></app-shop>
-		<!-- Основная часть сайта -->
+    <!-- Основная часть сайта -->
+    <RouterView></RouterView>
+    <!-- Основная часть сайта -->
 
-		<!-- Подвал -->
-		<app-shop-footer></app-shop-footer>
-		<!-- Подвал -->
+    <!-- Подвал -->
+    <app-shop-footer></app-shop-footer>
+    <!-- Подвал -->
 
-		<!-- Меняющаяся часть -->
-	</div>
+    <!-- Меняющаяся часть -->
+  </div>
 </template>
 
 <style>
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
 }
 </style>

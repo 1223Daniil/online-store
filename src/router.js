@@ -2,9 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 
 // Компоненты страниц
-import Page1 from './views/Page1.vue';
-import Page2 from './views/Page2.vue';
-
+import Brand from './views/AppBrand.vue';
+import AppShop from './views/AppShop.vue'
+import AppMain from './views/AppMain.vue'
 
 export default createRouter({
     // История переходов сохраняется
@@ -15,13 +15,18 @@ export default createRouter({
     routes: [
         {
             path: '/',
-            name: 'page1',
-            component: Page1,
+            name: 'Main',
+            component: AppMain,
         },
         {
-            path: '/page2',
-            name: 'page2',
-            component: Page2
+            path: '/brand',
+            name: 'Brand',
+            component: Brand,
+        },
+        {
+            path: '/shop',
+            name: 'Shop',
+            component: AppShop
         }
     ]
 })
