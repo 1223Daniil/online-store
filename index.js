@@ -15,12 +15,35 @@ app.use(express.json())
 
 // Настройка БД
 let mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/project-template')
+mongoose.connect('mongodb://127.0.0.1:27017/online-store')
 
-app.get('/', function (req, res) {
-	res.sendFile(__dirname + '/dist/index.html')
-})
+let schema = new mongoose.Schema({
+    title: String,
+   price:String,
+   image:String,
+});
 
-app.get(`/shop`, function (req, res) {
-	let
-})
+let Card = mongoose.model('cards', schema);
+
+app.get('/Alldata', async function (req, res) {
+    let events = await Card.find({});
+    res.send(events);
+});
+
+app.get('/sweatshirt', async function (req, res) {
+    let events = await Card.find({sweatshirt:true});
+    res.send(events);
+});
+app.get('/Coat', async function (req, res) {
+    let events = await Card.find({Coat:true});
+    res.send(events);
+});
+app.get('/jacket', async function (req, res) {
+    let events = await Card.find({jacket:true});
+    res.send(events);
+});
+
+
+
+
+

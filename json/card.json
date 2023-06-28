@@ -1,0 +1,54 @@
+[  {
+  "price": "100$",
+  "title": "Футболка",
+  "image": "d9df57d9-fa09-40c1-8c07-36cc606fcdea.png",
+  "sweatshirt":true
+},
+{
+  "price": "120$",
+  "title": "Джинсы",
+  "image": "Скриншот 26-06-2023 153600.jpg",
+  "Coat":true
+},
+{
+  "price": "98$",
+  "title": "Куртка",
+  "image": "2d52611c-c05f-4b14-893c-e251d8d86faf.png",
+  "jacket":true
+},
+{
+  "price": "111$",
+  "title": "Шорты",
+  "image": "girl1.jpg",
+  "sweatshirt":true
+},
+{
+  "price": "89$",
+  "title": "Платье",
+  "image": "Скриншот 26-06-2023 152826.jpg",
+  "Coat":true
+},
+{
+  "price": "134$",
+  "title": "Брюки",
+  "image": "Скриншот 26-06-2023 154253.jpg",
+  "jacket":true
+},
+{
+  "price": "90$",
+  "title": "Рубашка",
+  "image": "girl3.jpg",
+  "sweatshirt":true
+},
+{
+  "price": "100$",
+  "title": "Юбка",
+  "image": "girl2.jpg",
+  "Coat":true
+},
+{
+  "price": "75$",
+  "title": "Свитер",
+  "image": "ff496ed5-54a9-4277-944f-013cc5dbf24d.png",
+  "jacket":true
+}]

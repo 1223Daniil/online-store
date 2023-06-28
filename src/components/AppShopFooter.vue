@@ -1,3 +1,19 @@
+<script>
+export default {
+  methods: {
+    goShop() {
+      this.$router.push({ name: "Shop" });
+    },
+    goMain() {
+      this.$router.push({ name: "Main" });
+    },
+    goBrand() {
+      this.$router.push({ name: "Brand" });
+    },
+  },
+};
+</script>
+
 <template>
   <footer>
     <div class="bg">
@@ -10,10 +26,16 @@
             </div>
 
             <div class="footer_menu">
-              <a class="footer_menu__item" href="#">Главная</a>
-              <a class="footer_menu__item" href="#">Магазин</a>
-              <a class="footer_menu__item" href="#">О бренде</a>
-              <a class="footer_menu__item" href="#">Контакты</a>
+              <a class="footer_menu__item" href="#" @click="goMain()"
+                >Главная</a
+              >
+              <a class="footer_menu__item" href="#" @click="goShop()"
+                >Магазин</a
+              >
+              <a class="footer_menu__item" href="#" @click="goBrand()"
+                >О бренде</a
+              >
+              <a class="footer_menu__item" href="#" @click="">Контакты</a>
             </div>
 
             <div class="footer_contacts">
@@ -77,8 +99,8 @@ footer {
   background-color: #f1eadc;
   height: 363px;
 }
-.block {
-}
+/* .block {
+} */
 
 .block__wrap {
   display: grid;

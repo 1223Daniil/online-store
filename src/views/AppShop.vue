@@ -1,14 +1,46 @@
 <script>
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:3005";
 export default {
   data() {
-    let images = [{}];
+    return {
+      card: [],
+      jacket: [],
+      Coat: [],
+      sweatshirt: [],
+      activeButton: 1,
+    };
+  },
+  methods: {
+    async loadAll() {
+      let response = await axios.get("/Alldata");
+      this.card = response.data;
+    },
+    async loadjacket() {
+      let response = await axios.get("/jacket");
+      this.jacket = response.data;
+    },
+    async loadCoat() {
+      let response = await axios.get("/Coat");
+      this.Coat = response.data;
+    },
+    async loadsweatshirt() {
+      let response = await axios.get("/sweatshirt");
+      this.sweatshirt = response.data;
+    },
+  },
+  mounted() {
+    this.loadAll();
+    this.loadsweatshirt();
+    this.loadjacket();
+    this.loadCoat();
   },
 };
 </script>
 
 <template>
   <main>
-    <section class="card_block__clothing">
+    <section class="card_block__clothing container">
       <section class="card_block__clothing_wrap">
         <div class="title_block">
           <h1 class="title">Магазин</h1>
@@ -20,71 +52,87 @@ export default {
         </div>
 
         <div class="category_block">
-          <button class="category_item__btn">Все</button>
-          <button class="category_item__btn">Пальто</button>
-          <button class="category_item__btn">Свитшоты</button>
-          <button class="category_item__btn">Кардиганы</button>
-          <button class="category_item__btn">Толстовки</button>
+          <button
+            @click="activeButton = 1"
+            :class="{ active: activeButton === 1, category_item__btn: true }"
+          >
+            Все
+          </button>
+          <button
+            @click="activeButton = 2"
+            :class="{ active: activeButton === 2, category_item__btn: true }"
+          >
+            Пальто
+          </button>
+          <button
+            :class="{ active: activeButton === 3, category_item__btn: true }"
+            @click="activeButton = 3"
+          >
+            Платье
+          </button>
+          <button
+            @click="activeButton = 4"
+            :class="{ active: activeButton === 4, category_item__btn: true }"
+          >
+            Толстовки
+          </button>
         </div>
 
         <p class="show_product">Показано: 9 из 12 товаров</p>
-        <div class="card_block">
-          <div class="card_item">
-            <img src="../assets/girl1.jpg" class="" alt="" />
-            <span class="card_title">Футболка USA</span>
-            <span class="card_price">$129</span>
-          </div>
 
-          <div class="card_item">
-            <img src="../assets/girl2.jpg" class="" alt="" />
-            <span class="card_title">Футболка USA</span>
-            <span class="card_price">$129</span>
-          </div>
-
-          <div class="card_item">
-            <img src="../assets/girl3.jpg" class="" alt="" />
-            <span class="card_title">Футболка USA</span>
-            <span class="card_price">$129</span>
+        <div class="cardContainer" v-if="activeButton == 1">
+          <div class="card_item" v-for="(item, index) in card">
+            <img
+              width="350"
+              height="478"
+              :src="'../src/assets/' + item.image"
+              class=""
+              alt=""
+            />
+            <span class="card_title">{{ item.title }}</span>
+            <span class="card_price">{{ item.price }}</span>
           </div>
         </div>
 
-        <div class="card_block">
-          <div class="card_item">
-            <img src="../assets/girl1.jpg" class="" alt="" />
-            <span class="card_title">Футболка USA</span>
-            <span class="card_price">$129</span>
-          </div>
-
-          <div class="card_item">
-            <img src="../assets/girl2.jpg" class="" alt="" />
-            <span class="card_title">Футболка USA</span>
-            <span class="card_price">$129</span>
-          </div>
-
-          <div class="card_item">
-            <img src="../assets/girl3.jpg" class="" alt="" />
-            <span class="card_title">Футболка USA</span>
-            <span class="card_price">$129</span>
+        <div class="cardContainer" v-if="activeButton == 2">
+          <div class="card_item" v-for="(item, index) in Coat">
+            <img
+              width="350"
+              height="478"
+              :src="'../src/assets/' + item.image"
+              class=""
+              alt=""
+            />
+            <span class="card_title">{{ item.title }}</span>
+            <span class="card_price">{{ item.price }}</span>
           </div>
         </div>
 
-        <div class="card_block">
-          <div class="card_item">
-            <img src="../assets/girl1.jpg" class="" alt="" />
-            <span class="card_title">Футболка USA</span>
-            <span class="card_price">$129</span>
+        <div class="cardContainer" v-if="activeButton == 3">
+          <div class="card_item" v-for="(item, index) in sweatshirt">
+            <img
+              width="350"
+              height="478"
+              :src="'../src/assets/' + item.image"
+              class=""
+              alt=""
+            />
+            <span class="card_title">{{ item.title }}</span>
+            <span class="card_price">{{ item.price }}</span>
           </div>
+        </div>
 
-          <div class="card_item">
-            <img src="../assets/girl2.jpg" class="" alt="" />
-            <span class="card_title">Футболка USA</span>
-            <span class="card_price">$129</span>
-          </div>
-
-          <div class="card_item">
-            <img src="../assets/girl3.jpg" class="" alt="" />
-            <span class="card_title">Футболка USA</span>
-            <span class="card_price">$129</span>
+        <div class="cardContainer" v-if="activeButton == 4">
+          <div class="card_item" v-for="(item, index) in jacket">
+            <img
+              width="350"
+              height="478"
+              :src="'../src/assets/' + item.image"
+              class=""
+              alt=""
+            />
+            <span class="card_title">{{ item.title }}</span>
+            <span class="card_price">{{ item.price }}</span>
           </div>
         </div>
 
@@ -104,7 +152,11 @@ export default {
   font-family: "Raleway";
   src: url(../assets/Raleway.ttf);
 }
-
+.cardContainer {
+  display: flex;
+  /* align-items: center; */
+  flex-wrap: wrap;
+}
 .title_block {
   color: #000;
   display: inline-flex;
@@ -162,10 +214,6 @@ export default {
   gap: 10px;
 }
 
-.category_item__btn:nth-child(1) {
-  color: #fff;
-  background: #000;
-}
 .category_item__btn {
   color: #000;
   padding: 19px 65px;
@@ -176,6 +224,10 @@ export default {
   font-family: Raleway;
   line-height: 140%;
   letter-spacing: 0.34px;
+}
+.category_item__btn:hover {
+  color: #fff;
+  background: #000;
 }
 .card_block {
   display: flex;
@@ -188,6 +240,8 @@ export default {
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  margin-right: 30px;
+  margin-bottom: 65px;
 }
 
 .card_title {

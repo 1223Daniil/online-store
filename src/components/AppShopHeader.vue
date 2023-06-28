@@ -19,6 +19,9 @@ export default {
     goBrand() {
       this.$router.push({ name: "Brand" });
     },
+    goContact() {
+      this.$router.push({ name: "Contact" });
+    },
   },
 };
 </script>
@@ -39,7 +42,7 @@ export default {
       <a href="#" class="header_link" @click="goMain()">Главная</a>
       <a href="#" class="header_link" @click="goShop()">Магазин</a>
       <a href="#" class="header_link" @click="goBrand()">О нас</a>
-      <a href="#" class="header_link">Профиль</a>
+      <a href="#" class="header_link" @click="goContact()">Контакты</a>
     </div>
     <div class="contact">
       <div class="ImageContainer">

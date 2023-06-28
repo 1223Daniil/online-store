@@ -31,7 +31,9 @@ export default {
       newActive.push(newActive.shift());
       this.active = newActive;
     },
-   
+    goShop() {
+      this.$router.push({ name: "Shop" });
+    },
   },
 
   mounted() {
@@ -57,9 +59,9 @@ export default {
         <div class="description">
           {{ this.sliders[this.index].description }}
         </div>
-        <div class="SliderSkeep">
+        <div class="SliderSkeep" @click="goShop()">
           <img src="../assets/Frame 9.svg" />
-          <button class="slideButton">Открыть магазин</button>
+          <button class="slideButton" @click="goShop()">Открыть магазин</button>
         </div>
         <div class="progresBar">
           <div
