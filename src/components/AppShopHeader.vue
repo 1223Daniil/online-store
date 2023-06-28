@@ -29,6 +29,7 @@ export default {
   <header class="header container">
     <div class="headerContent">
       <img
+        @click="goMain()"
         class="logo"
         :style="{
           width: width - 75 + 'px',
@@ -36,7 +37,7 @@ export default {
         }"
         :src="imageLogo"
       />
-      Womazing
+      <span @click="goMain()">Womazing</span>
     </div>
     <div class="nav BasicText">
       <a href="#" class="header_link" @click="goMain()">Главная</a>
@@ -45,10 +46,12 @@ export default {
       <a href="#" class="header_link" @click="goContact()">Контакты</a>
     </div>
     <div class="contact">
-      <div class="ImageContainer">
+      <div class="ImageContainer" @click="goContact()">
         <img :src="imagePhone" />
       </div>
-      <a class="phone BasicText" href="#">+7 (495) 823-54-12</a>
+      <a @click="goContact()" class="phone BasicText" href="#"
+        >+7 (495) 823-54-12</a
+      >
       <img :src="imageBug" alt="" />
     </div>
   </header>

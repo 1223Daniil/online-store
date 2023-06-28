@@ -1,17 +1,32 @@
 <script>
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:3005";
 export default {
   data() {
-    return {};
+    return {
+      password: "",
+      login: "",
+    };
   },
   methods: {
     goShop() {
       this.$router.push({ name: "Shop" });
     },
-    goMain() {
-      this.$router.push({ name: "Main" });
+    goMainContact() {
+      if (this.password.length >= 1 || this.login.length >= 1) {
+        this.$router.push({ name: "Main" });
+      }
     },
     goBrand() {
       this.$router.push({ name: "Brand" });
+    },
+
+    async post(evt) {
+      evt.preventDefault();
+      await axios.post("/registration", {
+        login: this.login,
+        password: this.password,
+      });
     },
   },
 };
@@ -27,22 +42,22 @@ export default {
       />
     </div>
     <h2>Login</h2>
-    <form>
+    <form @submit="post">
       <div class="user-box">
-        <input type="text" name="" required="" />
+        <input v-model="login" type="text" name="" required="" />
         <label>Username</label>
       </div>
       <div class="user-box">
-        <input type="password" name="" required="" />
+        <input v-model="password" type="password" name="" required="" />
         <label>Password</label>
       </div>
-      <a href="#">
+      <button href="#" type="submit" @click="goMainContact()">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         Submit
-      </a>
+      </button>
     </form>
   </div>
 </template>
@@ -116,7 +131,7 @@ export default {
   font-size: 12px;
 }
 
-.login-box form a {
+.login-box form button {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -128,9 +143,11 @@ export default {
   transition: 0.5s;
   margin-top: 40px;
   letter-spacing: 4px;
+  background: #141e30;
+  border: none;
 }
 
-.login-box a:hover {
+.login-box button:hover {
   background: #03e9f4;
   color: #fff;
   border-radius: 5px;
@@ -138,12 +155,12 @@ export default {
     0 0 100px #03e9f4;
 }
 
-.login-box a span {
+.login-box button span {
   position: absolute;
   display: block;
 }
 
-.login-box a span:nth-child(1) {
+.login-box button span:nth-child(1) {
   top: 0;
   left: -100%;
   width: 100%;
@@ -162,7 +179,7 @@ export default {
   }
 }
 
-.login-box a span:nth-child(2) {
+.login-box button span:nth-child(2) {
   top: -100%;
   right: 0;
   width: 2px;
@@ -182,7 +199,7 @@ export default {
   }
 }
 
-.login-box a span:nth-child(3) {
+.login-box button span:nth-child(3) {
   bottom: 0;
   right: -100%;
   width: 100%;
@@ -202,7 +219,7 @@ export default {
   }
 }
 
-.login-box a span:nth-child(4) {
+.login-box button span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;

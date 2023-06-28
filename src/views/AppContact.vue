@@ -1,12 +1,36 @@
 <script>
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:3005";
 import { yandexMap, ymapMarker } from 'vue-yandex-maps'
 // function adjust_textarea(h) {
 //     h.style.height = "20px"
 //     h.style.height = (h.scrollHeight)+"px"
 // }
 export default {
-  components: { yandexMap, ymapMarker }
- 
+  components: { yandexMap, ymapMarker },
+ data(){
+  return{
+    Name:'',
+Email:'',
+Tem:'',
+Comment:'',
+  }
+ },
+ methods:{
+  async ContactData(evt) {
+      evt.preventDefault();
+      await axios.post("/Contact", {
+        Name:this.Name,
+        Email:this.Email,
+        Tem:this.Tem,
+        Comment:this.Comment,
+      });
+      this.Name = ''
+      this.Email = ''
+      this.Tem = ''
+      this.Comment = ''
+    },
+ }
 }
 </script>
 
@@ -29,21 +53,21 @@ export default {
 
 <h3>Напишите нам</h3>
 
-<form class="form-style-4" action="" method="post">
+<form class="form-style-4"  @submit="ContactData">
   <label for="field1">
-  <span>Имя</span><input type="text" name="field1" required="true" />
+  <span>Имя</span><input v-model="Name" type="text"  />
   </label>
   <label for="field2">
-  <span>E-mail</span><input type="email" name="field2" required="true" />
+  <span>E-mail</span><input v-model="Email" type="email"   />
   </label>
   <label for="field3">
-  <span>Тема комментария</span><input type="text" name="field3" required="true" />
+ <span>Тема комментария</span><input v-model="Tem" type="text"    /> 
   </label>
   <label for="field4">
-  <span>Комментарий</span><textarea name="field4" onkeyup="adjust_textarea(this)" required="true"></textarea>
+  <span>Комментарий</span><textarea v-model="Comment" onkeyup="adjust_textarea(this)" ></textarea>
   </label>
   <label>
-  <span> </span><button class="btn btn-primary" value="Отпрвавить">Отпрвавить</button>
+  <span> </span><button class="btn btn-primary" type="submit">Отпрвавить</button>
   </label>
 </form>
 </div>
