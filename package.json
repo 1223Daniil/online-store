@@ -18,7 +18,8 @@
     "nodemon": "^2.0.22",
     "vue": "^3.2.47",
     "vue-router": "^4.2.2",
-    "vue-yandex-maps": "^0.11.15"
+    "vue-yandex-maps": "^0.11.15",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

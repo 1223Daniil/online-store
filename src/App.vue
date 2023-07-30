@@ -3,13 +3,17 @@
 import { RouterView } from "vue-router";
 import AppShopFooter from "./components/AppShopFooter.vue";
 import AppShopHeader from "./components/AppShopHeader.vue";
-
+import axios from "axios";
+axios.defaults.baseURL = "http://localhost:3005";
 // Главная страница
 export default {
   components: {
     AppShopFooter,
     AppShopHeader,
     RouterView,
+  },
+  mounted() {
+    this.$store.dispatch("loadAll");
   },
 };
 </script>

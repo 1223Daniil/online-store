@@ -1,10 +1,13 @@
 <script>
 import axios from "axios";
 axios.defaults.baseURL = "http://localhost:3005";
+import { mapState } from "vuex";
 export default {
+  computed: {
+    ...mapState(["cards"]),
+  },
   data() {
     return {
-      card: [],
       jacket: [],
       Coat: [],
       sweatshirt: [],
@@ -12,10 +15,6 @@ export default {
     };
   },
   methods: {
-    async loadAll() {
-      let response = await axios.get("/Alldata");
-      this.card = response.data;
-    },
     async loadjacket() {
       let response = await axios.get("/jacket");
       this.jacket = response.data;
@@ -81,7 +80,11 @@ export default {
         <p class="show_product">Показано: 9 из 12 товаров</p>
 
         <div class="cardContainer" v-if="activeButton == 1">
-          <div class="card_item" v-for="(item, index) in card">
+          <div
+            class="card_item"
+            v-for="(item, index) in cards"
+            v-bind:key="item._id"
+          >
             <img
               width="350"
               height="478"
@@ -95,7 +98,11 @@ export default {
         </div>
 
         <div class="cardContainer" v-if="activeButton == 2">
-          <div class="card_item" v-for="(item, index) in Coat">
+          <div
+            class="card_item"
+            v-for="(item, index) in Coat"
+            v-bind:key="item._id"
+          >
             <img
               width="350"
               height="478"
@@ -109,7 +116,11 @@ export default {
         </div>
 
         <div class="cardContainer" v-if="activeButton == 3">
-          <div class="card_item" v-for="(item, index) in sweatshirt">
+          <div
+            class="card_item"
+            v-for="(item, index) in sweatshirt"
+            v-bind:key="item._id"
+          >
             <img
               width="350"
               height="478"
@@ -123,7 +134,11 @@ export default {
         </div>
 
         <div class="cardContainer" v-if="activeButton == 4">
-          <div class="card_item" v-for="(item, index) in jacket">
+          <div
+            class="card_item"
+            v-for="(item, index) in jacket"
+            v-bind:key="item._id"
+          >
             <img
               width="350"
               height="478"
@@ -152,6 +167,7 @@ export default {
   font-family: "Raleway";
   src: url(../assets/Raleway.ttf);
 }
+
 .cardContainer {
   display: flex;
   /* align-items: center; */
@@ -197,8 +213,6 @@ export default {
 }
 
 .card_block__clothing {
-  display: flex;
-  justify-content: center;
   margin-top: 190px;
 }
 

@@ -2,7 +2,6 @@
 // Компоненты
 
 // Главная страница
-export default {};
 </script>
 
 <template>
